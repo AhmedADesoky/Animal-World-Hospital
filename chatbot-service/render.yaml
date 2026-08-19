@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: awh-chatbot-service
+    runtime: python
+    plan: free
+    rootDir: chatbot-service
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL
+        value: openai/gpt-4o-mini
+      - key: EMBEDDING_MODEL
+        value: all-MiniLM-L6-v2
+      - key: CORS_ORIGINS
+        value: "*"
