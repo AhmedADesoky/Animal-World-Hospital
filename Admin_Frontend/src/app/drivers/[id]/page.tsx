@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Phone, Bike as BikeIcon, Package, TrendingUp, Pencil, Trash2, X, Check, ChevronRight } from "lucide-react";
+import { ArrowLeft, Phone, Bike as BikeIcon, Package, TrendingUp, Pencil, Trash2, Check, ChevronRight } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import StatusPill from "@/components/StatusPill";
 import Select from "@/components/ui/Select";

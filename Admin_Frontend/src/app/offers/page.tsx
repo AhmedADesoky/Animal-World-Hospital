@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Tag, Pencil, Trash2, X, Percent } from "lucide-react";
 import PageShell from "@/components/PageShell";
-import StatusPill from "@/components/StatusPill";
 import Select from "@/components/ui/Select";
 import DatePicker from "@/components/ui/DatePicker";
 import { offers as initialOffers, products, services, type Offer } from "@/lib/mock-data";
