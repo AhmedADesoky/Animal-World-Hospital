@@ -35,6 +35,7 @@ app = FastAPI(title="Ask AWH Chatbot")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[o.strip() for o in CORS_ORIGINS if o.strip()],
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_methods=["POST", "GET"],
     allow_headers=["*"],
 )
