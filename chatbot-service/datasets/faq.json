@@ -1,0 +1,8 @@
+[
+  {"title": "How do I book an appointment?", "content": "To book an appointment, go to the Book Appointment page on the website, choose a service, select your pet, then pick a date and time slot. You'll get a confirmation once it's booked. You can also ask this chatbot to start a booking for you."},
+  {"title": "What are your clinic hours?", "content": "Animal World Hospital is open Saturday to Thursday from 9:00 AM to 9:00 PM, and Friday from 2:00 PM to 9:00 PM. Our emergency line is available 24/7."},
+  {"title": "Can I cancel or reschedule a booking?", "content": "Yes. Go to your Profile page, open the Bookings tab, select the booking, and use the Reschedule or Cancel buttons. You can also contact the care team directly from the booking detail page."},
+  {"title": "Do you offer home delivery for shop orders?", "content": "Yes, we deliver products ordered from the shop. During checkout you drop a pin for your delivery location and add your address details; a driver is assigned and you can track the order status from your profile."},
+  {"title": "What payment methods do you accept?", "content": "We currently support cash on visit and cash on delivery for shop orders. Online payment integration is coming soon."},
+  {"title": "Do you treat exotic pets?", "content": "Our vets primarily treat dogs and cats. For exotic pets (birds, reptiles, small mammals) please call the clinic directly so we can confirm availability of a specialist."}
+]

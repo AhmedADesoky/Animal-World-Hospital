@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  .theme {
+    --font-heading: var(--font-display);
+    --font-sans: var(--font-body);
+  }
+  :root {
+    --background: #ffffff;
+    --foreground: #1a1a2e;
+    --card: #ffffff;
+    --card-foreground: #1a1a2e;
+    --popover: #ffffff;
+    --popover-foreground: #1a1a2e;
+    --primary: #c41e3a;
+    --primary-foreground: #ffffff;
+    --secondary: #f4f5f7;
+    --secondary-foreground: #1a1a2e;
+    --muted: #f4f5f7;
+    --muted-foreground: #4a4a6a;
+    --accent: #fff0f1;
+    --accent-foreground: #c41e3a;
+    --destructive: #c41e3a;
+    --border: rgba(26, 26, 46, 0.09);
+    --input: rgba(26, 26, 46, 0.09);
+    --ring: #c41e3a;
+    --radius: 1rem;
+  }
+  * {
+    border-color: var(--border);
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+  }
+
+  /* Hide scrollbars everywhere while keeping scroll functional */
+  html,
+  body,
+  * {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+  *::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Edge */
+  }
+}
+
+@layer components {
+  /* iOS-26 style glass surface: translucent, blurred, soft-edged */
+  .glass {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px) saturate(1.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    border: 1px solid rgba(26, 26, 46, 0.07);
+  }
+  .glass-dark {
+    background: rgba(26, 26, 46, 0.72);
+    backdrop-filter: blur(20px) saturate(1.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .surface-card {
+    @apply bg-white rounded-2xl border border-black/[.06] shadow-card transition-shadow duration-300;
+  }
+  .surface-card:hover {
+    box-shadow: 0 8px 20px rgba(26, 26, 46, 0.09), 0 2px 5px rgba(26, 26, 46, 0.04);
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-white text-sm shadow-red transition-all duration-200;
+    background: linear-gradient(155deg, #ff3b4e, #c41e3a 60%, #8f0e22);
+  }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(196, 30, 58, 0.28);
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-sm border-2 border-charcoal/10 bg-white/80 backdrop-blur-sm transition-all duration-200;
+  }
+  .btn-outline:hover {
+    @apply border-red-primary text-red-primary;
+  }
+  .pill-icon {
+    @apply flex items-center justify-center rounded-2xl text-2xl;
+    background: linear-gradient(155deg, #fff0f1, #ffe3e6);
+  }
+  .status-pill {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-[10.5px] font-bold uppercase tracking-wide whitespace-nowrap;
+  }
+}

@@ -1,0 +1,6 @@
+[
+  {"title": "Golden Retriever", "content": "Golden Retrievers are friendly, energetic dogs prone to hip dysplasia and certain cancers in later life. Regular exercise and periodic joint check-ups during Medical Consultations are recommended.", "metadata": {"species": "dog"}},
+  {"title": "British Shorthair", "content": "British Shorthair cats are calm and sturdy, but prone to obesity and heart conditions (HCM). Weight monitoring and regular check-ups are recommended.", "metadata": {"species": "cat"}},
+  {"title": "German Shepherd", "content": "German Shepherds are intelligent working dogs prone to hip and elbow dysplasia and digestive sensitivities. Joint supplements and regular vet visits help manage long-term health.", "metadata": {"species": "dog"}},
+  {"title": "Persian Cat", "content": "Persian cats have long coats requiring frequent Grooming Sessions to prevent matting, and flat faces that can cause breathing and eye issues requiring monitoring.", "metadata": {"species": "cat"}}
+]

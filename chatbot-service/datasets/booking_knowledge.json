@@ -1,0 +1,7 @@
+[
+  {"title": "How booking works", "content": "Booking has three steps: choose a service, choose which pet it's for, then pick a date and time from the calendar. You'll get a booking ID and can view it any time from your Profile page under the Bookings tab."},
+  {"title": "How to reschedule", "content": "Open the booking from your Profile > Bookings tab, click Reschedule, pick a new date and time from the calendar, then save. The clinic will be notified of the change automatically."},
+  {"title": "How to cancel a booking", "content": "Open the booking from your Profile > Bookings tab and click Cancel booking. Cancelled bookings cannot be restored — you'll need to create a new one if you change your mind."},
+  {"title": "What happens after I book", "content": "After booking, your appointment appears as Upcoming in your profile. The clinic may reach out via WhatsApp to confirm. On the day of your visit, arrive 5-10 minutes early."},
+  {"title": "Booking a home visit", "content": "Home Visit is bookable the same way as any other service — select 'Home Visit' as the service during booking. A vet will come to your address at the scheduled time."}
+]

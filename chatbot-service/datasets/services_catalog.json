@@ -1,0 +1,8 @@
+[
+  {"title": "Medical Consultation", "content": "Medical Consultation: Full health check-ups and diagnosis by licensed veterinarians. Price: 150 EGP. Duration: 30 minutes. Category: Medical.", "metadata": {"slug": "medical-consultation", "price": 150, "duration_min": 30}},
+  {"title": "Grooming Session", "content": "Grooming Session: Bathing, trimming, and styling to keep your pet fresh and healthy. Price: 120 EGP. Duration: 60 minutes. Category: Grooming.", "metadata": {"slug": "grooming-session", "price": 120, "duration_min": 60}},
+  {"title": "Vaccination", "content": "Vaccination: Core and lifestyle vaccines to protect your pet year-round. Price: 80 EGP. Duration: 15 minutes. Category: Preventive.", "metadata": {"slug": "vaccination", "price": 80, "duration_min": 15}},
+  {"title": "Home Visit", "content": "Home Visit: Veterinary care in the comfort of your own home. Price: 350 EGP. Duration: 45 minutes. Category: Home Visit.", "metadata": {"slug": "home-visit", "price": 350, "duration_min": 45}},
+  {"title": "Surgery — Neutering", "content": "Surgery — Neutering: Safe, modern surgical suites with full pre-op and post-op care. Price: 800 EGP. Duration: 120 minutes. Category: Surgery.", "metadata": {"slug": "surgery-neutering", "price": 800, "duration_min": 120}},
+  {"title": "Boarding", "content": "Boarding: Comfortable overnight and long-stay boarding with round-the-clock care. Price: 200 EGP per night. Category: Boarding.", "metadata": {"slug": "boarding", "price": 200, "duration_min": 1440}}
+]
