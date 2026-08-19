@@ -19,7 +19,6 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from sentence_transformers import SentenceTransformer
 
 import supabase_rest
 
@@ -28,9 +27,9 @@ load_dotenv()
 OPENROUTER_API_KEY = os.environ["OPENROUTER_API_KEY"]
 OPENROUTER_MODEL = os.environ.get("OPENROUTER_MODEL", "openai/gpt-4o-mini")
 EMBEDDING_MODEL = os.environ.get("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
+HF_API_TOKEN = os.environ["HF_API_TOKEN"]
+HF_EMBEDDING_URL = f"https://router.huggingface.co/hf-inference/models/sentence-transformers/{EMBEDDING_MODEL}/pipeline/feature-extraction"
 CORS_ORIGINS = os.environ.get("CORS_ORIGINS", "").split(",")
-
-embedder = SentenceTransformer(EMBEDDING_MODEL)
 
 app = FastAPI(title="Ask AWH Chatbot")
 app.add_middleware(
@@ -81,8 +80,18 @@ def is_emergency(message: str) -> bool:
     return any(kw.lower() in lowered for kw in EMERGENCY_KEYWORDS)
 
 
-def retrieve_context(message: str, category: Optional[str], match_count: int = 5):
-    query_embedding = embedder.encode([message], normalize_embeddings=True)[0].tolist()
+async def embed_text(text: str) -> list[float]:
+    headers = {"Authorization": f"Bearer {HF_API_TOKEN}"}
+    payload = {"inputs": text, "options": {"wait_for_model": True}}
+    async with httpx.AsyncClient(timeout=30) as client:
+        resp = await client.post(HF_EMBEDDING_URL, json=payload, headers=headers)
+    if resp.status_code != 200:
+        raise HTTPException(status_code=502, detail=f"Embedding error: {resp.text}")
+    return resp.json()
+
+
+async def retrieve_context(message: str, category: Optional[str], match_count: int = 5):
+    query_embedding = await embed_text(message)
     return supabase_rest.match_documents(query_embedding, match_count, category)
 
 
@@ -125,7 +134,7 @@ async def chat(req: ChatRequest):
     if is_emergency(req.message):
         return ChatResponse(answer=EMERGENCY_MESSAGE, emergency=True, sources=[])
 
-    matches = retrieve_context(req.message, req.category)
+    matches = await retrieve_context(req.message, req.category)
     context_text = "\n\n".join(f"- {m['title']}: {m['content']}" for m in matches) or "No matching context found."
 
     answer = await call_openrouter(req.message, context_text)
