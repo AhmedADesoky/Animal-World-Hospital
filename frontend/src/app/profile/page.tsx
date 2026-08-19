@@ -229,7 +229,7 @@ export default function ProfilePage() {
           ) : (
             <div className="space-y-3">
               {bookings.map((b) => (
-                <Link key={b.id} href={`/book/${b.id}`} className="surface-card p-5 flex items-center gap-4 hover:!shadow-card">
+                <Link key={b.id} href={`/book/detail?id=${b.id}`} className="surface-card p-5 flex items-center gap-4 hover:!shadow-card">
                   <div className="w-11 h-11 rounded-full bg-red-tint flex items-center justify-center shrink-0">
                     <Calendar size={17} strokeWidth={2} className="text-red-primary" />
                   </div>
@@ -265,7 +265,7 @@ export default function ProfilePage() {
           ) : (
             <div className="space-y-3">
               {orders.map((o) => (
-                <Link key={o.id} href={`/profile/orders/${o.id}`} className="surface-card p-5 flex items-center gap-4 hover:!shadow-card">
+                <Link key={o.id} href={`/profile/orders/detail?id=${o.id}`} className="surface-card p-5 flex items-center gap-4 hover:!shadow-card">
                   <div className="w-11 h-11 rounded-full bg-red-tint flex items-center justify-center shrink-0">
                     <Package size={17} strokeWidth={2} className="text-red-primary" />
                   </div>

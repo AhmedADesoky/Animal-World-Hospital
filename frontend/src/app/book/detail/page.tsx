@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { Suspense, useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Calendar as CalendarIcon, Clock, PawPrint, MessageCircle, Phone, Pencil, X, Check } from "lucide-react";
 import { useClientStore } from "@/lib/client-store";
@@ -15,8 +15,8 @@ const statusStyles: Record<string, string> = {
   Cancelled: "bg-red-tint text-red-primary",
 };
 
-export default function BookingDetailPage() {
-  const { id } = useParams<{ id: string }>();
+function BookingDetailInner() {
+  const id = useSearchParams().get("id");
   const router = useRouter();
   const { bookings, updateBooking, cancelBooking, setChatbotOpen } = useClientStore();
   const booking = bookings.find((b) => b.id === id);
@@ -133,5 +133,13 @@ export default function BookingDetailPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function BookingDetailPage() {
+  return (
+    <Suspense>
+      <BookingDetailInner />
+    </Suspense>
   );
 }

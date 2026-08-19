@@ -1,8 +1,9 @@
 "use client";
 
+import { Suspense } from "react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
-import { ArrowLeft, MapPin, Phone, StickyNote, Package } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { ArrowLeft, MapPin, Phone, StickyNote } from "lucide-react";
 import { useClientStore } from "@/lib/client-store";
 import MapEmbed from "@/components/MapEmbed";
 
@@ -15,8 +16,8 @@ const statusStyles: Record<string, string> = {
 
 const statusSteps = ["Placed", "Assigned", "In transit", "Delivered"];
 
-export default function ClientOrderDetailPage() {
-  const { id } = useParams<{ id: string }>();
+function ClientOrderDetailInner() {
+  const id = useSearchParams().get("id");
   const { orders } = useClientStore();
   const order = orders.find((o) => o.id === id);
 
@@ -101,5 +102,13 @@ export default function ClientOrderDetailPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ClientOrderDetailPage() {
+  return (
+    <Suspense>
+      <ClientOrderDetailInner />
+    </Suspense>
   );
 }

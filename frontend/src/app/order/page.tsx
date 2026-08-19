@@ -40,7 +40,7 @@ export default function OrderPage() {
           assigned shortly and you&apos;ll get a WhatsApp update.
         </p>
         <div className="flex gap-3 justify-center mt-8">
-          <Link href={`/profile/orders/${orderId}`} className="btn-primary">
+          <Link href={`/profile/orders/detail?id=${orderId}`} className="btn-primary">
             View order
           </Link>
           <Link href="/shop" className="btn-outline">

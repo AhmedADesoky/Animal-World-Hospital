@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense, useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { CheckCircle2, ArrowRight, ArrowLeft, PawPrint, Clock } from "lucide-react";
 import { services } from "@/lib/mock-data";
@@ -14,7 +14,6 @@ type Step = "service" | "pet" | "datetime" | "confirmed";
 
 function BookPageInner() {
   const searchParams = useSearchParams();
-  const router = useRouter();
   const { pets, addBooking } = useClientStore();
   const preselected = searchParams.get("service");
 
@@ -48,7 +47,7 @@ function BookPageInner() {
           {date} at {time} is confirmed.
         </p>
         <div className="flex gap-3 justify-center mt-8">
-          <Link href={`/book/${bookingId}`} className="btn-primary">
+          <Link href={`/book/detail?id=${bookingId}`} className="btn-primary">
             View booking
           </Link>
           <Link href="/profile" className="btn-outline">

@@ -56,7 +56,7 @@ export default function AskAwhChatbot() {
   return (
     <>
       <button
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => setOpen(!open)}
         aria-label="Open Ask AWH chatbot"
         className="fixed bottom-6 right-6 z-[60] w-14 h-14 rounded-full btn-primary !p-0 justify-center shadow-red hover:scale-105 transition-transform"
       >
